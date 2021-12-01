@@ -27,6 +27,7 @@ pipeline {
         }
 
         stage ('Deploy to Test'){
+            when { not { branch "main"} }
             steps {
                 sh """
                     oc set image deployment home-automation \
